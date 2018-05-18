@@ -1,0 +1,121 @@
+.game{
+	width: 230px;
+	height: 230px;
+	background-color: rgba(187, 173, 160, 0.651);
+  border: 10px solid  rgba(187, 173, 160, 0.651);
+  position: absolute;
+	top:10px;
+	left: 10px;
+}
+
+.none,.typeOne,.typeTwo,.typeThree,.typeFour,.typeFive,.typeSix,.typeSeven,.typeEight,.typeNine,.typeTen,.typeEleven,.typeTwenty{
+	width:50px;
+  height: 50px;
+  border-radius: 5px;
+	position: absolute;
+  box-sizing:border-box;
+  line-height:50px;
+  text-align:center;
+  font-weight: bold;
+  color:rgba(0, 0, 0, 0.651);
+}
+
+.typeOne,.typeTwo,.typeThree,.typeFour,.typeFive,.typeSix,.typeSeven,.typeEight,.typeNine,.typeTen,.typeEleven,.typeTwenty{
+  left:0;
+  top:0;
+  transition:top 200ms,left 200ms;
+  animation: myfirst 1s;
+}
+
+.none{
+  background-color: rgba(205, 193, 180, 0.651);
+  z-index: 1;
+}
+
+.typeOne{
+  background-color: rgba(238, 228, 218, 0.651);
+  font-size: 30px;
+  z-index: 2;
+}
+
+.typeTwo{
+  background-color: rgba(237, 224, 200, 0.651);
+  font-size: 30px;
+  z-index: 3;
+}
+
+.typeThree{
+  background-color: rgba(242, 177, 121, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 30px;
+  z-index: 4;
+}
+
+.typeFour{
+  background-color: rgba(245, 149, 99, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 30px;
+  z-index: 5;
+}
+
+.typeFive{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 6;
+}
+
+.typeSix{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 7;
+}
+
+.typeSeven{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 8;
+}
+
+.typeEight{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 9;
+}
+
+.typeNine{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 10;
+}
+
+.typeTen{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 11;
+}
+
+.typeEleven{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 12;
+}
+
+.typeTwenty{
+  background-color: rgba(246, 124, 95, 0.651);
+  color:rgba(255, 255, 255, 0.651);
+  font-size: 25px;
+  z-index: 13;
+}
+
+@keyframes myfirst
+{
+	from {opacity:0;}
+	to {opacity:0.651;}
+}
