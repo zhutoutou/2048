@@ -24,7 +24,7 @@
   left:0;
   top:0;
   transition:top 200ms,left 200ms;
-  animation: myfirst 1s;
+  animation: myfirst 400ms;
 }
 
 .none{

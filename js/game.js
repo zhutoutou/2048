@@ -76,22 +76,22 @@ var Game = function () {
             element.parentNode.removeChild(element);
         });
         if (node) {
-/*             //增加新增的元素
-            var newNode = document.createElement('div');
-            newNode.className = GetClass(node.value);
-            newNode.style.top = (node.i * (50 + 10) + 20) + 'px';
-            newNode.style.left = (node.j * (50 + 10) + 20) + 'px';
-            //制造出现效果
-            newNode.style.width = '10px';
-            newNode.style.height = '10px';
-            newNode.innerHTML = node.value;
-            container.appendChild(newNode);
-            setTimeout(() => {
-                newNode.style.top = (node.i * (50 + 10)) + 'px';
-                newNode.style.left = (node.j * (50 + 10)) + 'px';
-                newNode.style.width = '50px';
-                newNode.style.height = '50px';
-            }, 0); */
+            /*             //增加新增的元素
+                        var newNode = document.createElement('div');
+                        newNode.className = GetClass(node.value);
+                        newNode.style.top = (node.i * (50 + 10) + 20) + 'px';
+                        newNode.style.left = (node.j * (50 + 10) + 20) + 'px';
+                        //制造出现效果
+                        newNode.style.width = '10px';
+                        newNode.style.height = '10px';
+                        newNode.innerHTML = node.value;
+                        container.appendChild(newNode);
+                        setTimeout(() => {
+                            newNode.style.top = (node.i * (50 + 10)) + 'px';
+                            newNode.style.left = (node.j * (50 + 10)) + 'px';
+                            newNode.style.width = '50px';
+                            newNode.style.height = '50px';
+                        }, 0); */
             var newNode = document.createElement('div');
             newNode.className = GetClass(node.value);
             newNode.style.top = (node.i * (50 + 10)) + 'px';
@@ -117,19 +117,23 @@ var Game = function () {
         rotate(dir, data, gameDivs);
         //合并
         var blnChanged = combine(data, gameDivs, removeDivs);
-        //增加新的随机节点
-        var node = blnChanged ? addElement(data) : undefined;
-        //恢复默认方向
-        anti_rotate(dir, data, gameDivs, node);
-
-        gameData = data;
-        refreshDiv(gameDiv, gameData, gameDivs, removeDivs, node);
-        removeDivs = [];
-        if (!node) {
-            var result = checkGameOver(gameData)
-            if (result) {
-                alert('Game Over');
-            }
+        if (blnChanged) {
+            //增加新的随机节点
+            var node = addElement(data);
+            //恢复默认方向
+            anti_rotate(dir, data, gameDivs, node);
+            gameData = data;
+            refreshDiv(gameDiv, gameData, gameDivs, removeDivs, node);
+            removeDivs = [];
+        }
+        else {
+            //恢复默认方向
+            anti_rotate(dir, data, gameDivs, node);
+        }
+        //判断是否结束
+        var result = checkGameOver(gameData);
+        if (result) {
+            alert('Game Over');
         }
     }
 
@@ -254,6 +258,11 @@ var Game = function () {
     //检验游戏是否结束
     //两次卷积验证
     var checkGameOver = function (data) {
+        for (var i = 0; i < row; i++) {
+            for (var j = 0; j < row; j++) {
+                if (data[i][j] == 0) return false;
+            }
+        }
         for (var i = 0; i < data.length; i++) {
             for (var j = 1; j < data[i].length; j++) {
                 if (data[i][j] == data[i][j - 1]) {
